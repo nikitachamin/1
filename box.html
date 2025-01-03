@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+
+
+        <style>
+           .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 10px;
+            display: inline-block;
+           }
+        </style>
+    </head>
+    <body>
+
+        <button id="addElement">Добавить элемент</button>
+        <button id="delElement">Удалить элемент</button>
+        <button id="cloneElement">Клонировать элемент</button>
+
+        <div class="container">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+
+        <script>
+
+        const addElement = document.getElementById("addElement");
+        const delElement = document.getElementById("delElement");
+        const cloneElement = document.getElementById("cloneElement");
+        const containerEl = document.querySelector('.container');
+       
+
+        addElement.addEventListener('click', function (e) {
+            const newBoxEl = document.createElement('div');
+            newBoxEl.classList.add('box');
+            newBoxEl.textContent = createNewNumber();
+            containerEl.appendChild(newBoxEl);
+        });
+
+        delElement.addEventListener('click', function (e) {
+           const delatedEl = containerEl.lastChild;
+           delatedEl.remove();
+        });
+        
+        cloneElement.addEventListener('click', function (e) {
+            const lastBox = containerEl.lastChild;
+            const clonedEl = lastBox.cloneNode(true);
+            containerEl.append(clonedEl);
+        });
+
+      
+        function createNewNumber() {
+          const boxesElements = document.querySelectorAll('.box');
+           let max = -Infinity
+            for (let i of boxesElements) {
+               if(Number(i.textContent) > max){
+                max = i.textContent;
+               }
+               
+        } 
+        return Number(max)+1;
+    }
+        console.log(createNewNumber());
+    </script>
+    </body>
+</html>

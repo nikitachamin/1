@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- <section class="task">
+
+        <h1>Определение текущего размера окна браузера</h1>
+        <p > Ширина окна: <span class="window-size" id="width"></span> px</p>
+        <p > Высота окна: <span class="window-size" id="heigth"></span> px</p>
+    </section>
+ -->
+
+        <script>
+        // const updateWindowSize = () => {
+        //     const width = window.innerWidth;
+        //     const heigth = window.innerHeight;
+
+        //     const widthEl =  document.getElementById("width");
+        //     const heightEl =  document.getElementById("heigth");
+        //     widthEl.textContent = width;
+        //     heightEl.textContent = heigth;      
+        // }
+
+        // window.addEventListener('load', updateWindowSize)
+        // window.addEventListener('resize', updateWindowSize)
+           
+       
+        window.addEventListener('beforeunload', function (e) {
+            e.preventDefault();
+            e.returnValue = 'Text';
+        });
+      
+    </script>
+    </body>
+</html>

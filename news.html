@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <div class="container">
+        <h2 class="names">Список статей</h2>
+        <ul class="articals-list">
+
+        </ul>
+        <button class="addButton">Добавить новую статью</button>
+    </div>
+
+
+
+    <script>
+        const articalsData = [
+            {
+                title: 'Заголовок статьи 1',
+                content: 'Текст 1'
+            },
+            {
+                title: 'Заголовок статьи 2',
+                content: 'Текст 2'
+            }
+        ];
+
+
+        const articalsListEl = document.querySelector('.articals-list');
+        const addButtonEl = document.querySelector('.addButton');
+
+        articalsData.forEach(artical => {
+            const articalItem  = CreateArticale(artical.title, artical.content);
+            articalsListEl.append(articalItem);
+        });
+
+     function  CreateArticale(title,content){
+          const articalItem = document.createElement('li');
+          articalItem.classList.add("articals-list_item");
+
+          const articalTitle = document.createElement('h2');
+          articalTitle.classList.add("articals-list_item__title")
+          articalTitle.textContent = title;
+
+          const articalContent = document.createElement('p');
+          articalContent.classList.add("articals-list_item__content")
+          articalContent.textContent = content;
+
+          const removeButton = document.createElement('button');
+          removeButton.classList.add('remove-button');
+          removeButton.textContent = "Удалить статью";
+
+
+          const changeButton = document.createElement('button');
+          changeButton.classList.add('change-button');
+          changeButton.textContent = "Редактировать";
+
+          articalItem.append(articalTitle);
+          articalItem.append(articalContent);
+          articalItem.append(removeButton);
+          articalItem.append(changeButton);
+
+          return articalItem;
+        }
+
+
+        addButtonEl.addEventListener('click', function (e) {
+         const newArticalItem = CreateArticale("Новая статья", "Текст новой статьи");
+         articalsListEl.append(newArticalItem);
+        });
+
+        document.addEventListener('click', function (e) {
+           if(e.target.classList.contains('remove-button')){
+            const removedItem = e.target.closest('li');
+            removedItem.remove();
+           }
+        });
+
+        document.addEventListener('click', function (e) {
+           if(e.target.classList.contains('change-button')){
+            const changedItem = e.target.closest('li');
+           const changedTitle = changedItem.querySelector(".articals-list_item__title");
+           const changedContent = changedItem.querySelector(".articals-list_item__content");
+           changedTitle.textContent = prompt("Введите новое название");
+           changedContent.textContent = prompt("Введите новый текст");
+
+           }
+        });
+
+
+
+
+    </script>
+</body>
+</html>
