@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+  
+  </head>
+  <body>
+     <!-- <nav class="content">
+        <ul class="menu">
+            <li> <a  class="menu__link" href="#">Главная</a></li>
+            <li> <a  class="menu__link" href="#">О нас</a></li>
+            <li> <a  class="menu__link" href="#">Услуги</a></li>
+            <li> <a  class="menu__link" href="#">Контакты</a></li>
+        </ul>
+     </nav>
+     <script>
+      const menuEl = document.querySelector('.menu');
+
+   
+      menuEl.addEventListener('click', function (e) {
+        if (e.target.classList.contains("menu__link")) {
+            menuEl.querySelectorAll('.menu__link').forEach(element => {
+                e.preventDefault();
+                element.classList.remove('active');
+                e.target.classList.add('active');
+            });
+        }
+      });
+     </script> -->
+
+
+<!-- <div class="container">
+    <button class="btn">Открыть модальное окно</button>
+    <nav class="text__container">
+        <h2 class="header">Модальное окно</h2>
+        <button class="close-btn">Закрыть модальное окно</button>
+    </nav>
+
+    <script>
+        const btnEl = document.querySelector('.btn');
+        const textContainerEl = document.querySelector('.text__container');
+        const closeBtnEL = document.querySelector('.close-btn');
+
+        btnEl.addEventListener('click', function (e) {
+            textContainerEl.style.display = 'block';
+        });
+
+        closeBtnEL.addEventListener('click', function (e) {
+            console.log("привет");
+            textContainerEl.style.display = 'none';
+        });
+
+    </script> -->
+
+
+<div class="question">
+    <p>Вопрос 1: какой ваш любимый цвет</p>
+    <div class="options">
+        <label >
+            <input type="radio" name="q1" value="Синий"> Синий
+        </label>
+        <label >
+            <input type="radio" name="q1" value="Зеленый"> Зеленый
+        </label>
+        <label >
+            <input type="radio" name="q1" value="Красный"> Красный
+        </label>
+    </div>
+
+    <p>Вопрос 2: Какое ваше любимое животное</p>
+    <div class="options">
+        <label >
+            <input type="radio" name="q2" value="Собака"> Собака
+        </label>
+        <label >
+            <input type="radio" name="q2" value="Кошка"> Кошка
+        </label>
+        <label >
+            <input type="radio" name="q2" value="Черепашка"> Черепашка
+        </label>
+    </div>
+
+    <button id ="submit">Завершить опрос</button>
+
+     <div class="result" style="display: none;">
+        <p>Результаты: </p>
+        <p id="result-qs1">Вопрос 1: <span></span></p>
+        <p id="result-qs2">Вопрос 2: <span></span></p>
+     </div>
+
+
+     <script>
+        const submitBtn = document.getElementById('submit');
+        const resultContainer = document.querySelector('.result');
+        const resultQs1 = document.getElementById("result-qs1").querySelector('span');
+        const resultQs2 = document.getElementById("result-qs2").querySelector('span');
+submitBtn.addEventListener('click', function (e) {
+   const answerQ1 = document.querySelector('input[name="q1"]:checked');
+   const answerQ2 = document.querySelector('input[name="q2"]:checked');
+   if (answerQ1 && answerQ2) {
+    resultQs1.textContent = answerQ1.value;
+    resultQs2.textContent = answerQ2.value;
+    resultContainer.style.display = 'block';
+
+   } else {
+    alert("Выберете ответ для всех вопросов");
+   }
+});
+
+     </script>
+</div>
+</div>
+  </body>
+</html>
